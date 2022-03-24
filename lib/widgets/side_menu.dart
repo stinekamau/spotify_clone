@@ -43,7 +43,7 @@ class SideMenu extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          _LibraryPlayLists()
+          const _LibraryPlayLists()
 
           // The home tile
         ],
@@ -91,7 +91,7 @@ class __LibraryPlayListsState extends State<_LibraryPlayLists> {
     return Expanded(
       child: ListView(
         padding: const EdgeInsets.all(12.0),
-        // physics: const ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -106,6 +106,29 @@ class __LibraryPlayListsState extends State<_LibraryPlayLists> {
                 ),
               ),
               ...yourLibrary
+                  .map(
+                    (e) => ListTile(
+                      dense: true,
+                      title: Text(
+                        e,
+                        style: Theme.of(context).textTheme.bodyText1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      onTap: () {},
+                    ),
+                  )
+                  .toList(),
+              const SizedBox(height: 10),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                child: Text(
+                  "PLAYLISTS",
+                  style: Theme.of(context).textTheme.headline4,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              ...playlists
                   .map(
                     (e) => ListTile(
                       dense: true,

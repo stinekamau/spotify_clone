@@ -122,8 +122,12 @@ class Shell extends StatelessWidget {
           Expanded(
             child: Row(
               children: const [
-                SideMenu()
+                SideMenu(),
                 // Playlist screen
+                Expanded(
+                    child: PlayListScreen(
+                  playlist: lofihiphopPlaylist,
+                )),
               ],
             ),
           ),
