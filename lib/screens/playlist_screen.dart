@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/data/data.dart';
 import 'package:spotify_clone/widgets/playlist_header.dart';
+import 'package:spotify_clone/widgets/track_list.dart';
 
 // import '../widgets/widgets.dart';
 
@@ -122,7 +123,10 @@ class _PlayListScreenState extends State<PlayListScreen> {
               controller: _scrollController,
               padding:
                   const EdgeInsets.symmetric(horizontal: 20.0, vertical: 60.0),
-              children: [PlaylistHeader(playlist: widget.playlist)],
+              children: [
+                PlaylistHeader(playlist: widget.playlist),
+                TrackList(tracks: widget.playlist.songs),
+              ],
             )),
       ),
     );
